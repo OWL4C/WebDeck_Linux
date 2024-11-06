@@ -9,6 +9,7 @@ temp/*
 
 # virtual environment directory
 venv
+wd
 
 # compiled files
 build/
