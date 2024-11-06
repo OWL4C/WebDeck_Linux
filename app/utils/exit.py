@@ -1,6 +1,8 @@
 import sys
 import os
-import win32com.client
+from .oscheck import is_win
+if is_win:
+    import win32com.client
 import subprocess
 import signal
 from .logger import log

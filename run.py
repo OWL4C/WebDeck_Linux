@@ -1,4 +1,4 @@
-import ctypes
+#import ctypes
 import sys
 import os.path
 import threading
@@ -7,11 +7,11 @@ from app.utils.settings.get_config import get_config
 
 settings = get_config()['settings']
 
-if settings['app_admin']:
+"""if settings['app_admin']:
     if not ctypes.windll.shell32.IsUserAnAdmin():
         ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
         sys.exit()
-
+"""
 from app.utils.show_error import show_error
 from app.utils.is_opened import is_opened
 import app.utils.languages as languages

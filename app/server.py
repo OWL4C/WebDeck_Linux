@@ -16,7 +16,9 @@ from flask.wrappers import Response
 from flask_socketio import SocketIO
 from flask_minify import Minify
 from engineio.async_drivers import gevent # DO NOT REMOVE
-from win32com.client import Dispatch
+from .utils.oscheck import is_win
+if is_win:
+    from win32com.client import Dispatch
 import easygui
 
 # WebDeck imports

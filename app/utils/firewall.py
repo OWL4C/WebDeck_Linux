@@ -1,6 +1,8 @@
 import sys
 import subprocess
-from win32com.client import Dispatch
+from .oscheck import is_win
+if is_win:
+    from win32com.client import Dispatch
 from .logger import log
 
 def fix_firewall_permission():

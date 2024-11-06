@@ -1,10 +1,12 @@
 import time
 import math
 import ctypes
-import win32api
-import win32con
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume, ISimpleAudioVolume
+import sys
+if sys.platform.startswith('win'):
+    import win32api
+    import win32con
+    from comtypes import CLSCTX_ALL
+    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume, ISimpleAudioVolume
 
 
 

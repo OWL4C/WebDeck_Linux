@@ -4,14 +4,16 @@ import subprocess
 import time
 import inspect
 from flask import jsonify
-
-import win32gui
+from ..utils.oscheck import is_win
+if is_win:
+    import win32gui
 import pyperclip
 import pyautogui
 import keyboard
 
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume, ISimpleAudioVolume
-import comtypes
+if is_win:
+    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume, ISimpleAudioVolume
+    import comtypes
 
 
 from app.utils.logger import log

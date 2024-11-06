@@ -1,7 +1,9 @@
 import os
 import sys
 import json
-import win32gui, win32con
+from .utils.oscheck import is_win
+if is_win:
+    import win32gui, win32con
 import webbrowser
 import pystray
 import tkinter as tk

@@ -1,6 +1,8 @@
 import pyaudio
-import win32api
-import win32con
+import sys
+if sys.platform.startswith('win'):
+    import win32api
+    import win32con
 
 
 p = pyaudio.PyAudio()

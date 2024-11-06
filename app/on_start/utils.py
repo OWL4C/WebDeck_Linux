@@ -1,13 +1,15 @@
 import os
 import sys
-import winreg
 import subprocess
 import shutil
 import json
 import urllib.request
 import pynvml
 from math import sqrt
-from win32com.client import Dispatch
+from ..utils.oscheck import is_win
+if is_win:
+    from win32com.client import Dispatch
+    import winreg
 
 from app.updater import check_files, check_for_updates
 from app.utils.settings.check_config_update import check_config_update

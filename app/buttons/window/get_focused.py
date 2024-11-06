@@ -1,4 +1,6 @@
-import win32gui
+import sys
+if sys.platform.startswith('win'):
+    import win32gui
 from app.utils.logger import log
 
 
