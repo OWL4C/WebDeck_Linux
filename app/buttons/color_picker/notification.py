@@ -5,10 +5,11 @@ if platform == 'win32':
 else:
     import subprocess
     import os
+    from notifypy import Notify
     import pyperclip
 
 
-def toast(display_type, typestocopy, color_names_final):
+def toast(display_type, typestocopy, color_names_final, copyval):
     duration = 5
     if platform != 'win32':
         unix_icon = os.getcwd()+"/static/icons/icon.png"
@@ -16,11 +17,20 @@ def toast(display_type, typestocopy, color_names_final):
         message_body = dict(color_names_final) # this ensures we have a copied dictionary, not a reference to the original.
         del message_body["NAME"]
         message_body = str(message_body).replace("', ", ",\n")[:-2][2:].replace("'", "")
-        subprocess.Popen(["notify-send", "-t", str(duration*1000), "-i", str(unix_icon), "--app-name", "WebDeck", str(color_names_final["NAME"]), str(message_body)])
+        notification = Notify()
+        notification.title = str(color_names_final["NAME"])
+        notification.application_name = "WebDeck"
+        notification.message = str(message_body)
+        if platform == "darwin":
+            notification.icon = "" ### See notify-py's docs
+            pass # https://github.com/ms7m/notify-py/wiki/Adding-a-custom-icon-to-macOS-Notifications.
+        notification.icon = unix_icon
+        notification.send(block=False)
+        notification.send()
+        if copycal != "":
+            pyperclip.copy(color_names_final[copyval])
         return
-        ### TODO COPY VALUE TO CLIPBOARD (add config option which value(s) should be copied)
-        """pyperclip.copy(which value?)
-        """
+
     icon = "static\\icons\\icon.ico"
     message = ""
     if display_type and display_type.lower() != "list":

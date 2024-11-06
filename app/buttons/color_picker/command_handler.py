@@ -95,4 +95,6 @@ def handle_command(message):
         else:
             pyperclip.copy(", ".join(typestocopy_final.values()))
 
-    toast(display_type, typestocopy, color_names_final)
+    valtocopy = "RGB" #TODO ADD UI to change Value
+
+    toast(display_type, typestocopy, color_names_final, valtocopy)
