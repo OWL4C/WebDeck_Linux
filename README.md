@@ -1,47 +1,33 @@
-[![Version française](https://img.shields.io/badge/Lire%20en-Fran%C3%A7ais-blue?style=for-the-badge&logo=appveyor)](https://github.com/Lenochxd/WebDeck/blob/master/README-fr.md)
-[![Version Korean](https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4%EB%A1%9C-%EC%9D%BD%EA%B8%B0-blue?style=for-the-badge&logo=appveyor)](https://github.com/Lenochxd/WebDeck/blob/master/README-ko.md)
-
 # WebDeck
 
-The WebDeck is a Flask application that allows users to control their computer remotely from any device with a browser and a touchscreen. Unlike Elgato's StreamDeck, which requires physical equipment, WebDeck uses a Flask application that the user hosts on their computer.
+The WebDeck is a Flask application that allows users to control their computer remotely from any device with a browser and a touchscreen. 
 
 <div align="center">
   <img src="https://github.com/Lenochxd/WebDeck/assets/101269524/c9c02a34-1f98-4a12-9cc0-621e06cfe2e5" alt="WebDeck banner">
   <img src="https://github.com/Lenochxd/WebDeck/assets/101269524/c32cce97-bef4-418a-872e-8ceec3f1df79" alt="WebDeck example image" width="55%" height="55%">
   
-  [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Lenochxd/WebDeck.svg?style=flat)](https://github.com/Lenochxd/WebDeck/releases)
-  [![GitHub downloads](https://img.shields.io/github/downloads/Lenochxd/WebDeck/total.svg?style=flat)](https://github.com/Lenochxd/WebDeck/releases)
-  [![GitHub stars](https://img.shields.io/github/stars/Lenochxd/WebDeck.svg?style=flat)](https://github.com/Lenochxd/WebDeck/stargazers)
-  [![GitHub issues](https://img.shields.io/github/issues/Lenochxd/WebDeck.svg?style=flat)](https://github.com/Lenochxd/WebDeck/issues)
-  [![Discord](https://img.shields.io/discord/391919052563546112?style=flat&logo=Discord&logoColor=fff&label=Discord&color=5e6ae8&link=https%3A%2F%2Fdiscord.gg%2FtUPsYHAGfm)](https://discord.gg/tUPsYHAGfm)
 </div>
 
 
-## 🖥️🚀 Installation
+## 🖥️🚀 Running
 
-1. Download the latest version of WebDeck from the [Releases](https://github.com/Lenochxd/WebDeck/releases) section on GitHub.
+1. Clone the repo, then install the required packages with `pip install -r requirements_linux.txt` (on most modern Linux distributions you must use a `venv` with `pip`. See [venv Section](#python-venv-for-pip) Below)
 
-2. Extract the contents of `WebDeck-win-amd64-portable.zip` to the location of your choice on your computer.
+2. Run `python run.py` in the main folder
 
-3. Open the chosen location and run  `WebDeck.exe`.
+3. There is nothing to install on your mobile device, you simply need to open the website (ip+port in format 127.0.0.1:59997).
 
-4. There is nothing to install on your mobile device, you simply need to scan the QR code by clicking on the tray icon.
+### Python venv for pip
 
+To create a `venv` named `wd` use the following command: `python -m venv wd`
 
-## 📋 Frequently Asked Questions (FAQ)
+Then source it in your current shell with `source wd/bin/activate` (Works with zsh and bash at least, for others please look into the venv docs)
 
-Before asking questions, please check our [FAQ](https://github.com/Lenochxd/WebDeck/blob/master/docs/FAQ-en.md) to see if your question has already been answered. We've gathered commonly asked questions to provide you with quick answers.
-
-If your question is not addressed in the FAQ, feel free to ask us on our [Discord server](https://discord.gg/tUPsYHAGfm).
-
-
-## 📱❔ Compatibility
-
-To check the compatibility of your device and browser with WebDeck, you can refer to the  [test table](https://docs.google.com/spreadsheets/d/1tyfyFJzIdrOl0-Y6wBXaq9EXqViVVCEJu4zQ2-VMGgM/edit#gid=0). This table details the results of various experiments on different devices and browsers. You can also contribute to the table using https://bishokus.fr/webdeck/test-it
 
 #### 💻 Operating System Support
 
-WebDeck currently supports Windows. We plan to develop versions for Linux and macOS in the future. Unfortunately, Wine emulation is not a viable solution for Linux compatibility. We appreciate your patience as we work on expanding our supported platforms.
+This WebDeck Fork currently is developing support for Linux, and macOS in the future.
+On debian based distros the package `portaudio19-dev` is required to correctly install the required packages. (Install with `sudo apt install portaudio19-dev`)
 
 
 ## ⭐ Contributors
@@ -97,8 +83,8 @@ Writing and supporting code is fun but it takes time. If you want to thank the a
 
 ### Pull requests
 
-<a href="https://github.com/Lenochxd/WebDeck/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Lenochxd/WebDeck" />
+<a href="https://github.com/OWL4C/WebDeck_Linux/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=OWL4C/WebDeck_Linux" />
 </a>
 
 ### 🙏 Donors
@@ -115,19 +101,13 @@ Writing and supporting code is fun but it takes time. If you want to thank the a
 
 <br>
 
+Original Developer:
 <a href="https://ko-fi.com/lenoch" target="_blank"><img height="35" style="height:46px;" src="https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0" alt="Buy Me a Coffee at ko-fi.com"/>
 
 
 ### ⚠️ Issues
 
-WebDeck is an ever-evolving project, and we appreciate your contributions to further improve it. If you encounter any issues, feel free to [open an issue](https://github.com/Lenochxd/WebDeck/issues) on GitHub, submit a pull request with your upgrades, or if you're not a nerd, you can contact me elsewhere:
-
-- Discord Server: [https://discord.gg/tUPsYHAGfm](https://discord.gg/tUPsYHAGfm)
-- Twitter: [https://twitter.com/WebDeckApp](https://twitter.com/WebDeckApp)
-- Email: contact.lenoch@gmail.com
-
+WebDeck is an ever-evolving project, and we appreciate your contributions to further improve it. If you encounter any issues, feel free to [open an issue](https://github.com/OWL4C/WebDeck_Linux/issues) on GitHub, or submit a pull request with your upgrades.
 <br>
 
 ---
-
-[![wakatime](https://wakatime.com/badge/github/Lenochxd/WebDeck.svg)](https://wakatime.com/badge/github/Lenochxd/WebDeck) : (only since July 3rd, 2023, started on December 16th, 2022)
