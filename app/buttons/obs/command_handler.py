@@ -33,59 +33,63 @@ def handle_command(message):
 
         raise ConnectionError(f"{text('obs_failed_connection_error').replace('.','')}: {error}")
 
+    try:
 
-    if message.startswith("/obs_toggle_rec"):
-        recording.toggle(obs)
+        if message.startswith("/obs_toggle_rec"):
+            recording.toggle(obs)
 
-    elif message.startswith("/obs_start_rec"):
-        recording.start(obs)
+        elif message.startswith("/obs_start_rec"):
+            recording.start(obs)
 
-    elif message.startswith("/obs_stop_rec"):
-        recording.stop(obs)
-
-
-    elif message.startswith("/obs_toggle_rec_pause"):
-        recording.pause_toggle(obs)
-
-    elif message.startswith("/obs_pause_rec"):
-        recording.pause(obs)
-        
-    elif message.startswith("/obs_resume_rec"):
-        recording.resume(obs)
+        elif message.startswith("/obs_stop_rec"):
+            recording.stop(obs)
 
 
-    elif message.startswith("/obs_toggle_stream"):
-        stream.toggle(obs)
+        elif message.startswith("/obs_toggle_rec_pause"):
+            recording.pause_toggle(obs)
 
-    elif message.startswith("/obs_start_stream"):
-        stream.start(obs)
+        elif message.startswith("/obs_pause_rec"):
+            recording.pause(obs)
 
-    elif message.startswith("/obs_stop_stream"):
-        stream.stop(obs)
-
-
-    elif message.startswith("/obs_toggle_virtualcam"):
-        virtualcam.toggle(obs)
-
-    elif message.startswith("/obs_start_virtualcam"):
-        virtualcam.start(obs)
-
-    elif message.startswith("/obs_stop_virtualcam"):
-        virtualcam.stop(obs)
+        elif message.startswith("/obs_resume_rec"):
+            recording.resume(obs)
 
 
-    elif message.startswith("/obs_scene"):
-        scene_name = message.replace("/obs_scene", "")
-        scene.set(obs, scene_name)
-    
-    
-    elif message.startswith("/obs_key"):
-        hotkey = message.split(' ')[-1]
-        result = obs.call(obs.TriggerHotkeyByKeySequence(keyId="OBS_KEY_"+hotkey))
-        if "failed" in str(result):
-            log.error(f"Failed to trigger hotkey '{hotkey}': {result}")
-            raise RuntimeError(f"{text('failed')} :/")
-        log.success(f"Hotkey triggered '{hotkey}' successfully.")
+        elif message.startswith("/obs_toggle_stream"):
+            stream.toggle(obs)
 
+        elif message.startswith("/obs_start_stream"):
+            stream.start(obs)
+
+        elif message.startswith("/obs_stop_stream"):
+            stream.stop(obs)
+
+
+        elif message.startswith("/obs_toggle_virtualcam"):
+            virtualcam.toggle(obs)
+
+        elif message.startswith("/obs_start_virtualcam"):
+            virtualcam.start(obs)
+
+        elif message.startswith("/obs_stop_virtualcam"):
+            virtualcam.stop(obs)
+
+
+        elif message.startswith("/obs_scene"):
+            scene_name = message.replace("/obs_scene", "")
+            scene.set(obs, scene_name)
+
+
+        elif message.startswith("/obs_key"):
+            hotkey = message.split(' ')[-1]
+            result = obs.call(obs.TriggerHotkeyByKeySequence(keyId="OBS_KEY_"+hotkey))
+            if "failed" in str(result):
+                log.error(f"Failed to trigger hotkey '{hotkey}': {result}")
+                raise RuntimeError(f"{text('failed')} :/")
+            log.success(f"Hotkey triggered '{hotkey}' successfully.")
+
+    except Exception as e:
+        obs.disconnect()
+        raise e
 
     obs.disconnect()
