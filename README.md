@@ -28,6 +28,7 @@ Then source it in your current shell with `source wd/bin/activate` (Works with z
 
 This WebDeck Fork currently is developing support for Linux, and macOS in the future.
 On debian based distros the package `portaudio19-dev` is required to correctly install the required packages. (Install with `sudo apt install portaudio19-dev`)
+For Virtual Camera support in OBS you need `v4l2loopback` (both for native OBS and since version 26 flatpak) on your system, again on debian based systems: `sudo apt install v4l2loopback-dkms`. (Other distros, especially without dkms, might call it differently)
 
 
 ## ⭐ Contributors
